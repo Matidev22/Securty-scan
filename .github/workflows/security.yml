@@ -18,8 +18,7 @@ jobs:
        with:
          args: detect --source . --no-git --redact
          
-     - name: Run Bandit
-       run: bandit -r .
+    
        
      - name: Run pip-audit
        run: pip-audit -r requirements.txt
@@ -31,6 +30,9 @@ jobs:
 
      - name: Install Bandit
        run: pip install bandit
+
+     - name: Run Bandit
+       run: bandit -r .
 
      - name: Run Bandit Scan
        run: bandit -r . || true
