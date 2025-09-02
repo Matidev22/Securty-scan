@@ -6,6 +6,12 @@ jobs:
     steps:
      - name: Checkout repo
        uses: actions/checkout@v4
+       
+     - name: Install pip-audit
+       run: pip install pip-audit
+
+     - name: Run pip-audit
+       run: pip-audit || true
 
      - name: Setup Python
        uses: actions/setup-python@v5
