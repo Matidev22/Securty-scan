@@ -6,6 +6,11 @@ jobs:
     steps:
      - name: Checkout repo
        uses: actions/checkout@v4
+
+     - name: Setup Python
+       uses: actions/setup-python@v5
+       with:
+         python-version: '3.11'
        
      - name: Install pip-audit
        run: pip install pip-audit
@@ -17,11 +22,6 @@ jobs:
        uses: zricethezav/gitleaks-action@v2
        with:
          args: detect --source . --no-git --redact
-
-     - name: Setup Python
-       uses: actions/setup-python@v5
-       with:
-         python-version: '3.11'
 
      - name: Install Bandit
        run: pip install bandit
