@@ -12,6 +12,11 @@ jobs:
 
      - name: Run pip-audit
        run: pip-audit || true
+       
+     - name: Secret scan (gitleaks)
+       uses: zricethezav/ gitleaks-actions@v2
+       with:
+       args: detect --source . --no-git --redact
 
      - name: Setup Python
        uses: actions/setup-python@v5
