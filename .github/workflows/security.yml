@@ -17,12 +17,7 @@ jobs:
        uses: zricethezav/gitleaks-action@v2
        with:
          args: detect --source . --no-git --redact
-         
-    
-       
-     - name: Run pip-audit
-       run: pip-audit -r requirements.txt
-     
+
      - name: Setup Python
        uses: actions/setup-python@v5
        with:
